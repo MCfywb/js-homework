@@ -1,0 +1,58 @@
+#login {
+    width: 560px;
+    height: 260px;
+    border: 1px solid #ccc;
+    position: absolute;
+    background: #fff;
+}
+
+#login form {
+    margin: 20px 5px 20px 90px;
+}
+
+#login h2 {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fff;
+    background: #044599;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 20px 0;
+}
+
+#login div {
+    font-size: 14px;
+    color: #666;
+    padding: 5px 0;
+    text-align: left;
+}
+
+#login input.text {
+    width: 200px;
+    height: 25px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 14px;
+}
+
+.pc {
+    margin: 0 8px;
+    color: #E4393C;
+}
+
+#login input.submit {
+    width: 107px;
+    height: 40px;
+    background-color: limegreen;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-family: "黑体";
+    margin: 20px 120px;
+	border-radius: 6px;
+}
