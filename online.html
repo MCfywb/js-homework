@@ -55,6 +55,175 @@
                     </div>
 				</div>
 
+				<div id="studentInfo" class="hide">
+				    <div class="box_top">我的信息查询</div>
+                    <div style="padding: 20px;">
+                        <table class="table" width="60%">
+                            <tr>
+                                <td width="30%"><strong>学号：</strong></td>
+                                <td id="studentId"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>姓名：</strong></td>
+                                <td id="studentName"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>角色：</strong></td>
+                                <td id="studentRole"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>登录时间：</strong></td>
+                                <td id="loginTime"></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <div class="box_top">我的成绩</div>
+                        <div id="myScores"></div>
+                    </div>
+				</div>
+
+				<div id="testHistory" class="hide">
+				    <div class="box_top">测试历史记录</div>
+                    <div style="padding: 20px;">
+                        <div id="historyList"></div>
+                    </div>
+				</div>
+
+				<div id="studentQuery" class="hide">
+				    <div class="box_top">学生信息查询</div>
+                    <div style="padding: 20px;">
+                        <form name="studentQueryForm">
+                            查询方式：
+                            <select name="queryType" class="ui_txt">
+                                <option value="id">按学号查询</option>
+                                <option value="name">按姓名查询</option>
+                            </select>
+                            查询内容：<input name="queryContent" class="ui_txt">
+                            <input type="button" value="查询" onclick="queryStudents()" class="ui_btn">
+                            <input type="button" value="显示全部" onclick="showAllStudents()" class="ui_btn">
+                        </form>
+                        <div id="queryResult"></div>
+                    </div>
+				</div>
+
+				<div id="studentDelete" class="hide">
+				    <div class="box_top">学生信息删除</div>
+                    <div style="padding: 20px;">
+                        <form name="studentDeleteForm">
+                            查询方式：
+                            <select name="deleteQueryType" class="ui_txt">
+                                <option value="id">按学号查询</option>
+                                <option value="name">按姓名查询</option>
+                            </select>
+                            查询内容：<input name="deleteQueryContent" class="ui_txt">
+                            <input type="button" value="查询" onclick="queryStudentsForDelete()" class="ui_btn">
+                            <input type="button" value="显示全部" onclick="showAllStudentsForDelete()" class="ui_btn">
+                        </form>
+                        <div id="deleteResult"></div>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <input type="button" value="删除选中" onclick="deleteSelectedStudents()" class="ui_btn" style="background-color: #d9534f;">
+                        </div>
+                    </div>
+				</div>
+
+				<div id="studentStatistics" class="hide">
+				    <div class="box_top">学生信息统计</div>
+                    <div style="padding: 20px;">
+                        <div id="statisticsResult"></div>
+                        <div style="margin-top: 30px;">
+                            <div class="box_top">成绩分布图表</div>
+                            <div id="scoreChart"></div>
+                        </div>
+                    </div>
+				</div>
+
+				<div id="questionInput" class="hide">
+				    <div class="box_top">试题录入</div>
+                    <div style="padding: 20px;">
+                        <form name="questionForm">
+                            <table class="table" width="95%">
+                                <tr>
+                                    <td width="20%"><strong>题目类型：</strong></td>
+                                    <td>
+                                        <select name="questionType" class="ui_txt" onchange="updateQuestionType()">
+                                            <option value="single">单选题</option>
+                                            <option value="multiple">多选题</option>
+                                            <option value="subjective">主观题</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>题目内容：</strong></td>
+                                    <td><textarea name="questionContent" class="ui_txt" style="width: 80%; height: 80px;"></textarea></td>
+                                </tr>
+                                <tr id="optionARow">
+                                    <td><strong>选项A：</strong></td>
+                                    <td><input name="optionA" class="ui_txt" style="width: 80%;"></td>
+                                </tr>
+                                <tr id="optionBRow">
+                                    <td><strong>选项B：</strong></td>
+                                    <td><input name="optionB" class="ui_txt" style="width: 80%;"></td>
+                                </tr>
+                                <tr id="optionCRow">
+                                    <td><strong>选项C：</strong></td>
+                                    <td><input name="optionC" class="ui_txt" style="width: 80%;"></td>
+                                </tr>
+                                <tr id="optionDRow">
+                                    <td><strong>选项D：</strong></td>
+                                    <td><input name="optionD" class="ui_txt" style="width: 80%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>正确答案：</strong></td>
+                                    <td id="answerInput">
+                                        <input type="radio" name="correctAnswer" value="A">A
+                                        <input type="radio" name="correctAnswer" value="B">B
+                                        <input type="radio" name="correctAnswer" value="C">C
+                                        <input type="radio" name="correctAnswer" value="D">D
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">
+                                        <input type="button" value="添加试题" onclick="addQuestion()" class="ui_btn">
+                                        <input type="reset" value="重置" class="ui_btn">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                        <div id="questionInfo"></div>
+                        <div id="questionList"></div>
+                    </div>
+				</div>
+
+				<div id="subjectiveReview" class="hide">
+				    <div class="box_top">主观题评阅</div>
+                    <div style="padding: 20px;">
+                        <form name="subjectiveReviewForm">
+                            <table class="table" width="95%">
+                                <tr>
+                                    <td width="20%"><strong>学生姓名：</strong></td>
+                                    <td>
+                                        <select name="studentName" class="ui_txt" onchange="showStudentSubjectiveQuestions()">
+                                            <option value="">请选择学生</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                        <div id="subjectiveQuestionsList"></div>
+                    </div>
+				</div>
+
+				<div id="scoreStatistics" class="hide">
+				    <div class="box_top">成绩统计</div>
+                    <div style="padding: 20px;">
+                        <div id="scoreStatisticsResult"></div>
+                        <div style="margin-top: 30px;">
+                            <div class="box_top">成绩分析图表</div>
+                            <div id="scoreAnalysisChart"></div>
+                        </div>
+                    </div>
+				</div>
+
 				<div id="t" class="hide">
 				    <div class="box_top">单元测试 1</div>
 					<form name="test">您的题库一共有6道题，您要做其
@@ -65,6 +234,19 @@
 				</div>
 				<div id="search">
 				    <div class="box_top">成绩查询</div>
+                    <div style="padding: 20px;">
+                        <form name="searchForm">
+                            查询方式：
+                            <select name="searchType" class="ui_txt">
+                                <option value="id">按学号查询</option>
+                                <option value="name">按姓名查询</option>
+                            </select>
+                            查询内容：<input name="searchContent" class="ui_txt">
+                            <input type="button" value="查询" onclick="searchScores()" class="ui_btn">
+                            <input type="button" value="显示全部" onclick="showAllScores()" class="ui_btn">
+                        </form>
+                        <div id="searchResult"></div>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -82,6 +264,7 @@
 			            <li><a href="#"><span class="line"></span>单元测试6</a></li>
 			            <li><a href="#"><span class="line"></span>单元测试7</a></li>
 			            <li><a href="#"><span class="line"></span>单元测试8</a></li>
+			            <li><a href="#" id="testHistoryLink"><span class="line"></span>测试历史记录</a></li>
 			        </ul>
 			    </div>
 			    <div id="teacher">
