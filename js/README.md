@@ -6,4 +6,3 @@
 
 学生账号 student 123456
 
-thebugmuxi
