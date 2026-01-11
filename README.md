@@ -6,4 +6,4 @@
 
 学生账号 student 123456
 
-#Contributors:[TheBUGMUXI](https://github.com/MUXIIDEA)
+# Contributors:[TheBUGMUXI](https://github.com/MUXIIDEA)
